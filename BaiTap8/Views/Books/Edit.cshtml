@@ -1,0 +1,72 @@
+﻿@model BaiTap8.Models.Book
+
+@{
+    ViewData["Title"] = "Sửa sách";
+}
+
+<h2>Sửa sách</h2>
+
+<form asp-action="Edit"
+      method="post"
+      enctype="multipart/form-data">
+
+    <input type="hidden"
+           asp-for="Id" />
+
+    <div class="mb-3">
+        <label class="form-label">
+            Tên sách
+        </label>
+
+        <input asp-for="Name"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Giá
+        </label>
+
+        <input asp-for="Price"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Ảnh hiện tại
+        </label>
+
+        <br />
+
+        @if (Model.Images != null)
+        {
+            foreach (var img in Model.Images)
+            {
+                <img src="@img.ImageUrl"
+                     width="100"
+                     class="m-1 border" />
+            }
+        }
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Thêm ảnh mới
+        </label>
+
+        <input type="file"
+               name="files"
+               multiple
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Cập nhật
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Quay lại
+    </a>
+</form>

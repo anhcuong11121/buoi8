@@ -1,0 +1,40 @@
+﻿@model BaiTap8.Models.Product
+
+<h2>Sửa sản phẩm</h2>
+
+<form asp-action="Edit"
+      method="post"
+      enctype="multipart/form-data">
+
+    <input asp-for="Id" type="hidden" />
+
+    <div class="mb-3">
+        <label>Tên sản phẩm</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Giá</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        @foreach (var img in Model.Images)
+        {
+            <img src="@img.ImageUrl"
+                 width="100"
+                 class="m-1 border" />
+        }
+    </div>
+
+    <div class="mb-3">
+        <input type="file"
+               name="files"
+               multiple
+               class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">
+        Cập nhật
+    </button>
+</form>

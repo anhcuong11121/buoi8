@@ -1,0 +1,27 @@
+﻿@model BaiTap8.Models.Product
+
+<h2>Chi tiết sản phẩm</h2>
+
+<h4>@Model.Name</h4>
+
+<p>
+    Giá: @Model.Price
+</p>
+
+@if (Model.Images != null)
+{
+    foreach (var img in Model.Images)
+    {
+        <img src="@img.ImageUrl"
+             width="150"
+             class="m-1 border" />
+    }
+}
+
+<br />
+<br />
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+    Quay lại
+</a>

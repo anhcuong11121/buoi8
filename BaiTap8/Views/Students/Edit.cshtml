@@ -1,0 +1,44 @@
+﻿@model BaiTap8.Models.Student
+
+<h2>Sửa sinh viên</h2>
+
+<form asp-action="Edit"
+      method="post"
+      enctype="multipart/form-data">
+
+    <input asp-for="Id"
+           type="hidden" />
+
+    <div class="mb-3">
+        <input asp-for="Name"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <input asp-for="Age"
+               class="form-control" />
+    </div>
+
+    <div>
+
+        @foreach (var img in Model.Images)
+        {
+            <img src="@img.ImageUrl"
+                 width="100"
+                 class="m-1 border" />
+        }
+
+    </div>
+
+    <div class="mb-3">
+        <input type="file"
+               name="files"
+               multiple
+               class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">
+        Cập nhật
+    </button>
+
+</form>
